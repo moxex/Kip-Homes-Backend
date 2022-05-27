@@ -16,8 +16,6 @@ environ.Env.read_env(os.path.join(BASE_DIR / '.env'))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-xbzm_6r^4v3if#ufe_hs)2ypk*3c3dga&kpdr&ai*--bpcxeiz'
-
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -141,6 +139,8 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'users.User'
+
 import logging
 import logging.config
 
@@ -170,7 +170,7 @@ logging.config.dictConfig(
                 "level": "INFO",
                 "class": "logging.FileHandler",
                 "formatter": "file",
-                "filename": "logs/real_estate.log",
+                "filename": "logs/kip_homes.log",
             },
             "django.server": DEFAULT_LOGGING["handlers"]["django.server"],
         },
