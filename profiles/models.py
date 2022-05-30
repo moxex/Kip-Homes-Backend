@@ -8,7 +8,7 @@ from common.models import TimeStampedUUIDModel
 User = get_user_model()
 
 
-class Genger(models.TextChoices):
+class Gender(models.TextChoices):
     MALE = 'Male', _('Male')
     FEMALE = 'Female', _('Female')
     OTHER = 'Other', _('Other')
@@ -20,17 +20,19 @@ class Profile(TimeStampedUUIDModel):
     phone_number = PhoneNumberField(verbose_name=_('Phone Number'), 
                                     max_length=30, default='+2348123456789')
 
-    about_me = models.TextField(verbose_name=_('About Me'), 
-                            default='Please tell us about yourself, not more than 300 words...')
-
-    license = models.CharField(verbose_name=_('Kip Homes Agent License'), 
-                                    max_length=20, blank=True, null=True)
+    about_me = models.TextField(
+        verbose_name=_("About me"), default="say something about yourself"
+    )
+    
+    license = models.CharField(
+        verbose_name=_("Real Estate license"), max_length=20, blank=True, null=True
+    )                            
 
     profile_photo = models.ImageField(verbose_name=_('Profile Photo'), 
                                         default='/profile_default.png' )
 
-    gender = models.CharField(verbose_name=_('Gender'), choices=Genger.choices, 
-                                default=Genger.OTHER, max_length=20)
+    gender = models.CharField(verbose_name=_('Gender'), choices=Gender.choices, 
+                                default=Gender.OTHER, max_length=20)
 
     country = CountryField(verbose_name=_('Country'), default='NG', blank=False, null=False)
 

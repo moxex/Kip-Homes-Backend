@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
 
-    # Third Party Apps
+    # Third Party Packages
     'rest_framework',
     'django_filters',
     'django_countries',
@@ -148,6 +148,13 @@ REST_FRAMEWORK = {
     )
 }
 
+# APPEND_SLASH=False
+
+"""
+Simple Jwt congfiguration, i got all the idea from doc
+follow the documentation for more 
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html#
+"""
 from datetime import timedelta
 
 SIMPLE_JWT = {
@@ -162,6 +169,13 @@ SIMPLE_JWT = {
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }
 
+
+
+"""
+Djoser congfiguration, got all these idea from docs
+follow the documentation for more
+https://djoser.readthedocs.io/en/latest/settings.html 
+"""
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
@@ -184,7 +198,11 @@ DJOSER = {
 }
 
 
-
+"""
+Django loggers, this helps me with all logs on the log file of the projects,
+got the idea from docs.
+https://docs.djangoproject.com/en/4.0/topics/logging/#topic-logging-parts-loggers
+"""
 import logging
 import logging.config
 
