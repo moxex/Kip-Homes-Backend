@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'profiles.apps.ProfilesConfig',
     'common.apps.CommonConfig',
     'ratings.apps.RatingsConfig',
+    'properties.apps.PropertiesConfig',
+    'enquiries.apps.EnquiriesConfig'
 
 
 ]
@@ -148,7 +150,6 @@ REST_FRAMEWORK = {
     )
 }
 
-# APPEND_SLASH=False
 
 """
 Simple Jwt congfiguration, i got all the idea from doc
